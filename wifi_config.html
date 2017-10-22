@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>MXCHIP AP</title>
+        <link rel="stylesheet" href="style/pure-min.css">
+        <link rel="stylesheet" href="style/main.css">
+        <script src="js/ajax.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-menu">
+                <div class="icon"></div>
+            </div>
+            <img src="./assets/logo.jpg" alt="">
+        </div>
+        <div class="container">
+                <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <h3>Wi-Fi Setup</h3>
+
+                            <h4>Networks Detected:</h4>
+
+                            <label class="m-check ui-margin">
+                                <div class="ssid_list_select">Select</div>
+                                <div class="ssid_list_name" style="width: 190px;">Name</div>
+                                <div class="ssid_list_strength">Strength</div>
+                            </label>
+
+                            <div id="ssid-list-container"></div>
+
+                            <div class="button-container">
+                                    <div class="button-xlarge pure-button pure-done-button" onclick="selectedSSID(event);">Join Network</div>
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+        </div>
+
+        <div class="enter-code-container">
+            <div class="title">Enter Code</div>
+            <div class="des">Please enter the 5 digit code provided by the Bride app.</div>
+            <form class="pure-form pure-form-stacked">
+            <div class="pure-u-1 edit-input-container">
+                <input class="pure-input-1" type="text" placeholder="" value="">
+            </div>
+            <div class="button-container">
+                    <button class="pure-button pure-ghost-button">Cancel</button>
+                    <button class="pure-button pure-done-button">OK</button>
+            </div>
+        </form>
+
+        </div>
+
+        <script>
+        var fromData = [
+            {
+                name: 'Connection #1',
+                strength: '100'
+            },
+            {
+                name: 'Connection #2',
+                strength: '75'
+            },
+            {
+                name: 'Connection #3',
+                strength: '50'
+            },
+            {
+                name: 'Connection #4',
+                strength: '25'
+            }
+        ];
+        render.SSIDListFromBySSIDList(fromData);
+        refreshSSIDListData.start();
+        </script>
+    </body>
+</html>

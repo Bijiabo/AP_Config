@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>MXCHIP AP</title>
+        <link rel="stylesheet" href="style/pure-min.css">
+        <link rel="stylesheet" href="style/main.css">
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header-menu">
+                <div class="icon"></div>
+            </div>
+            <img src="./assets/logo.jpg" alt="">
+        </div>
+        <div class="container">
+                <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <h3>Console Info</h3>
+                    
+                            <div id="form-items-container"></div>
+
+                            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+
+                            
+                        </fieldset>
+                    </form>
+        </div>
+
+        <script>
+        var fromData = [
+            {
+                key: 'Device name',
+                value: 'Charlie\'s Bride',
+                enable: true
+            },
+            {
+                key: 'Device ID',
+                value: 'XXX XXX XXX',
+                enable: false
+            },
+            {
+                key: 'Family name',
+                value: 'Smith',
+                enable: false
+            },
+            {
+                key: 'Family ID',
+                value: 'XXX XXX XXX',
+                enable: false
+            },
+            {
+                key: 'Registration date',
+                value: '12 March 2018',
+                enable: false
+            },
+            {
+                key: 'Device name',
+                value: 'Charlie\'s Bride',
+                enable: true
+            },
+            {
+                key: 'Device ID',
+                value: 'XXX XXX XXX',
+                enable: false
+            },
+            {
+                key: 'Family name',
+                value: 'Smith',
+                enable: false
+            },
+            {
+                key: 'Family ID',
+                value: 'XXX XXX XXX',
+                enable: false
+            },
+            {
+                key: 'Registration date',
+                value: '12 March 2018',
+                enable: false
+            }
+        ];
+        render.consoleInfoFormByFormData(fromData);
+        </script>
+    </body>
+</html>

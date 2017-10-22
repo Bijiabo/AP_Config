@@ -1,0 +1,198 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 44px;
+    background-color: #EA560E;
+    text-align: center;
+}
+
+.header img {
+    height: 100%;
+    width: auto;
+}
+
+.header-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 44px;
+    width: 50px;
+    /* background: rgba(0,0,0,0.2); */
+}
+.header-menu .icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #ffffff;
+    height: 4px;
+    width: 26px;
+    margin: -2px 10px 0 10px;
+    border-radius: 2px;
+}
+.header-menu .icon::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    height: 4px;
+    border-radius: 2px;
+}
+.header-menu .icon::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.container {
+    margin-top: 44px;
+    padding: 16px;
+}
+
+.form_item_title {
+    color: #808182;
+    margin-bottom: -4px !important;
+}
+
+.form_item_disable_edit {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #D7D8DA;
+    margin-bottom: 10px;
+}
+
+.pure-form input[type=text] {
+    border: none;
+    border-bottom: 1px solid #D7D8DA;
+    box-shadow: none;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 40px;
+}
+
+.edit-input-container {
+    position: relative;
+}
+
+.edit-input-container::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -12px;
+    background-image: url(../assets/edit.jpg);
+    background-size: 100%;
+}
+
+/* custom radio */
+.ui-middle{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.m-radio{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: solid 2px #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.m-radio:after{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+.m-check{
+    clear: both;
+    width: 100%;
+    display: inline-block;
+    height: 34px;
+    overflow: auto;
+}
+.m-check input[type="radio"]{
+    display: none;
+}
+.m-check input[type="radio"]:checked + div{
+    border:solid 2px #FF6823;
+}
+.m-check input[type="radio"]:checked + div:after{
+    background-color: #FF6823;
+    border:solid 2px rgba(0,0,0,0);
+}
+.m-check>div {
+    float: left;
+}
+.m-check .ssid_list_name, .m-check .ssid_list_strength {
+    position: relative;
+    top: -3px;
+    line-height: 30px;
+}
+.m-check .ssid_list_name {
+    width: 192px;
+    margin: 0 20px 0 20px;
+}
+.button-container {
+    text-align: center;
+}
+.pure-done-button {
+    background-color: #ffffff;
+    border: 1px solid #FF6823;
+    color: #FF6823;
+    border-radius: 6px;
+}
+.pure-done-button:hover {
+    background-color: #ffffff;
+    background-image: none;
+}
+.pure-ghost-button {
+    background-color: none;
+    background: none;
+    border: 1px solid #4C4D4E;
+    color: #4C4D4E;
+    border-radius: 6px;
+}
+.pure-ghost-button:hover {
+    background-color: none;
+    background-image: none;
+}
+.enter-code-container {
+    box-sizing: border-box;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: 200px;
+    margin-left: -40%;
+    margin-top: -100px;
+    background: #E5E6E7;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+}
+.enter-code-container .title {
+    font-weight: bold;
+    color: #494A4B;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
