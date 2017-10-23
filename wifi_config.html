@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="style/pure-min.css">
         <link rel="stylesheet" href="style/main.css">
         <script src="js/ajax.min.js"></script>
+        <script src="js/api.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -34,11 +35,11 @@
                                 <div class="des">Please enter the 5 digit code provided by the Bride app.</div>
                                     
                                 <div class="pure-u-1 input-container">
-                                    <input class="pure-input-1" type="text" placeholder="" value="">
+                                    <input class="pure-input-1" type="text" placeholder="" value="" id="ssid-password">
                                 </div>
                                 <div class="button-container">
                                         <div class="pure-button pure-ghost-button" onclick="enterCodeContainerElements.hide();">Cancel</div>
-                                        <button type="submit" class="pure-button pure-done-button">OK</button>
+                                        <button type="submit" class="pure-button pure-done-button" onclick="connectSSID(event);" >OK</button>
                                 </div>
                             </div>
 
@@ -64,39 +65,25 @@
         </div>
 
         <script>
-        var fromData = [
-            {
-                name: 'Connection #1',
-                strength: '100'
-            },
-            {
-                name: 'Connection #2',
-                strength: '75'
-            },
-            {
-                name: 'Connection #3',
-                strength: '50'
-            },
-            {
-                name: 'Connection #4',
-                strength: '25'
+        API.getWiFiScanList(function(res){
+            if (!res.success) {
+                alert('Get Wi-Fi scan list failed. Please try refresh page again.');
+                return;
             }
-        ];
-        render.SSIDListFromBySSIDList(fromData);
+            window.ssid_scan_list = res.data;
+            render.SSIDListFromBySSIDList(res.data);
+        });
+        
         refreshSSIDListData.start();
 
-        var savedList = [
-            {
-                name: 'Connection #1'
-            },
-            {
-                name: 'Connection #1'
-            },
-            {
-                name: 'Connection #1'
+        API.getWiFiSavedList(function(res){
+            if (!res.success) {
+                alert('Get Wi-Fi saved list failed. Please try refresh page again.');
+                return;
             }
-        ];
-        render.SavedSSIDListFromBySSIDList(savedList);
+            window.saved_ssid_list = res.data;
+            render.SavedSSIDListFromBySSIDList(res.data);
+        })
 
         </script>
     </body>

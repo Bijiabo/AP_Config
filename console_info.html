@@ -4,6 +4,8 @@
         <title>MXCHIP AP</title>
         <link rel="stylesheet" href="style/pure-min.css">
         <link rel="stylesheet" href="style/main.css">
+        <script src="js/ajax.min.js"></script>
+        <script src="js/api.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -19,68 +21,23 @@
                             <h3>Console Info</h3>
                     
                             <div id="form-items-container"></div>
-
-                            <button type="submit" class="pure-button pure-button-primary">Sign in</button>
-
-                            
+                            <!--
+                            <div class="button-container" style="margin-top: 10px;">
+                                <button type="submit" class="pure-button pure-done-button" style="width: 120px;">Save</button>
+                            </div>
+                            -->
                         </fieldset>
                     </form>
         </div>
 
         <script>
-        var fromData = [
-            {
-                key: 'Device name',
-                value: 'Charlie\'s Bride',
-                enable: true
-            },
-            {
-                key: 'Device ID',
-                value: 'XXX XXX XXX',
-                enable: false
-            },
-            {
-                key: 'Family name',
-                value: 'Smith',
-                enable: false
-            },
-            {
-                key: 'Family ID',
-                value: 'XXX XXX XXX',
-                enable: false
-            },
-            {
-                key: 'Registration date',
-                value: '12 March 2018',
-                enable: false
-            },
-            {
-                key: 'Device name',
-                value: 'Charlie\'s Bride',
-                enable: true
-            },
-            {
-                key: 'Device ID',
-                value: 'XXX XXX XXX',
-                enable: false
-            },
-            {
-                key: 'Family name',
-                value: 'Smith',
-                enable: false
-            },
-            {
-                key: 'Family ID',
-                value: 'XXX XXX XXX',
-                enable: false
-            },
-            {
-                key: 'Registration date',
-                value: '12 March 2018',
-                enable: false
+        API.getConsoleInfo(function(res){
+            if (!res.success) {
+                alert('Get console info failed. Please try refresh page again.');
+                return;
             }
-        ];
-        render.consoleInfoFormByFormData(fromData);
+            render.consoleInfoFormByFormData(res.data);
+        });
         </script>
     </body>
 </html>

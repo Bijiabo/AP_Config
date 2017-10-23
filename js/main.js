@@ -31,7 +31,7 @@ var generate = {
             <label class="m-check ui-margin">\
                 <input type="radio" name="ssid_list" value="'+i+'" '+ (i==0?'checked':'') +'>\
                 <div class="m-radio ui-pos"></div>\
-                <div class="ssid_list_name">'+item.name+'</div>\
+                <div class="ssid_list_name">'+item.ssid+'</div>\
                 <div class="ssid_list_strength">'+item.strength+'%</div>\
             </label>';
 
@@ -46,8 +46,8 @@ var generate = {
             
             var itemHTMLCode = '\
             <label class="m-check ui-margin">\
-                <div class="ssid_list_name" style="margin-left: 0;">'+item.name+'</div>\
-                <div class="ssid_list_delete" style="float: right; text-align: right;">Delete</div>\
+                <div class="ssid_list_name" style="margin-left: 0;">'+item.ssid+'</div>\
+                <div class="ssid_list_delete" style="float: right; text-align: right;" onclick="removeSSID(\''+item.ssid+'\');">Delete</div>\
             </label>';
 
             result += itemHTMLCode;
@@ -84,8 +84,12 @@ var refreshSSIDListData = {
     setIntervalID: -1,
     start: function() {
         var getDataFunction = function() {
-            ajax().get('./wifi_config.html').then(function (response, xhr) {
-                // do something...
+            API.getWiFiScanList(function(res){
+                if (!res.success) {
+                    alert('Get Wi-Fi scan list failed. Please try refresh page again.');
+                    return;
+                }
+                render.SSIDListFromBySSIDList(res.data);
             });
         };
         this.setIntervalID = window.setInterval(getDataFunction, 1000);
@@ -135,3 +139,48 @@ var enterCodeContainerElements = {
 var reloadPage = function() {
     window.location.reload();
 }
+
+var connectSSID = function(event) {
+    event.preventDefault();
+    var selectedSSIDItem = document.querySelector('input[name="ssid_list"]:checked');
+    if (!selectedSSIDItem) {
+        console.error('Can not find selected SSID Item');
+    }
+    var selectedSSIDItemValue = selectedSSIDItem.value;
+    var ssid = window.ssid_scan_list[selectedSSIDItemValue].ssid
+
+    var password = document.getElementById('ssid-password').value;
+
+    console.log('Selected SSID Value is:' + ssid, 'password is: '+ password);
+
+    API.connectWiFi(ssid, password, function(res){
+        if (res.success) {
+            alert ('Connect Wi-Fi success!');
+        } else {
+            alert ('Connect Wi-Fi failed, please try again.');
+        }
+    });
+};
+
+var reset = function(event) {
+    event.preventDefault();
+    API.reset(function(res){
+        if (res.success) {
+            alert ('Reset success!');
+        } else {
+            alert ('Reset failed, please try again.');
+        }
+    });
+};
+
+var removeSSID = function(ssid) {
+    API.removeSavedSSID(ssid, function(res){
+        if (res.success) {
+            alert ('Remove SSID success!');
+        } else {
+            alert ('Remove SSID failed, please try again.');
+            return;
+        } 
+        window.location.reload();
+    });
+};
