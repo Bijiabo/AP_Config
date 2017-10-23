@@ -29,27 +29,38 @@
 
                             <div id="ssid-list-container"></div>
 
+                            <div class="enter-code-container">
+                                <div class="title">Enter Code</div>
+                                <div class="des">Please enter the 5 digit code provided by the Bride app.</div>
+                                    
+                                <div class="pure-u-1 input-container">
+                                    <input class="pure-input-1" type="text" placeholder="" value="">
+                                </div>
+                                <div class="button-container">
+                                        <div class="pure-button pure-ghost-button" onclick="enterCodeContainerElements.hide();">Cancel</div>
+                                        <button type="submit" class="pure-button pure-done-button">OK</button>
+                                </div>
+                            </div>
+
                             <div class="button-container">
                                     <div class="button-xlarge pure-button pure-done-button" onclick="selectedSSID(event);">Join Network</div>
                             </div>
+
+                            <div class="refresh-container pure-u-1" onclick="reloadPage()">
+                                <div class="pure-u-1">
+                                    <img src="./assets/refresh.jpg" alt="">
+                                </div>
+                                <div class="pure-u-1">
+                                    <p>Refresh available networks</p>
+                                </div>
+                            </div>
+
+                            <h4>Saved Networks:</h4>
+
+                            <div id="saved-network-list-container"></div>
                             
                         </fieldset>
                     </form>
-        </div>
-
-        <div class="enter-code-container">
-            <div class="title">Enter Code</div>
-            <div class="des">Please enter the 5 digit code provided by the Bride app.</div>
-            <form class="pure-form pure-form-stacked">
-            <div class="pure-u-1 edit-input-container">
-                <input class="pure-input-1" type="text" placeholder="" value="">
-            </div>
-            <div class="button-container">
-                    <button class="pure-button pure-ghost-button">Cancel</button>
-                    <button class="pure-button pure-done-button">OK</button>
-            </div>
-        </form>
-
         </div>
 
         <script>
@@ -73,6 +84,20 @@
         ];
         render.SSIDListFromBySSIDList(fromData);
         refreshSSIDListData.start();
+
+        var savedList = [
+            {
+                name: 'Connection #1'
+            },
+            {
+                name: 'Connection #1'
+            },
+            {
+                name: 'Connection #1'
+            }
+        ];
+        render.SavedSSIDListFromBySSIDList(savedList);
+
         </script>
     </body>
 </html>

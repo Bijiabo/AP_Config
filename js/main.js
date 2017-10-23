@@ -38,6 +38,21 @@ var generate = {
             result += itemHTMLCode;
         }
         return result;
+    },
+    SavedSSIDListFromHTML: function(SSIDList) {
+        var result = '';
+        for (var i=0,len=SSIDList.length; i<len; i++) {
+            var item = SSIDList[i];
+            
+            var itemHTMLCode = '\
+            <label class="m-check ui-margin">\
+                <div class="ssid_list_name" style="margin-left: 0;">'+item.name+'</div>\
+                <div class="ssid_list_delete" style="float: right; text-align: right;">Delete</div>\
+            </label>';
+
+            result += itemHTMLCode;
+        }
+        return result;
     }
 };
 
@@ -58,6 +73,10 @@ var render = {
     SSIDListFromBySSIDList: function(SSIDList) {
         var formHTMLCode = generate.SSIDListFromHTML(SSIDList);
         this.setHTMLForElementID('ssid-list-container', formHTMLCode);
+    },
+    SavedSSIDListFromBySSIDList: function(SSIDList) {
+        var formHTMLCode = generate.SavedSSIDListFromHTML(SSIDList);
+        this.setHTMLForElementID('saved-network-list-container', formHTMLCode);
     }
 }
 
@@ -86,4 +105,33 @@ var selectedSSID = function(e) {
     }
     var selectedSSIDItemValue = selectedSSIDItem.value;
     console.log('Selected SSID Value is:' + selectedSSIDItemValue);
+    enterCodeContainerElements.show();
+}
+
+var enterCodeContainerElements = {
+    getElement: function() {
+        var enterCodeContainerElements = document.getElementsByClassName('enter-code-container');
+        if (enterCodeContainerElements.length > 0) {
+            return enterCodeContainerElements[0];
+        } else {
+            console.error('Can not find enter-code-container');
+            return false;
+        }
+    },
+    show: function() {
+        var element = this.getElement();
+        if (element) {
+            element.style.display = 'block';
+        }
+    },
+    hide: function() {
+        var element = this.getElement();
+        if (element) {
+            element.style.display = 'none';
+        }
+    }
+}
+
+var reloadPage = function() {
+    window.location.reload();
 }
