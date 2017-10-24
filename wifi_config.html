@@ -2,7 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>MXCHIP AP</title>
-        <link rel="stylesheet" href="style/pure-min.css">
+        <link rel="stylesheet" href="style/pure.min.css">
         <link rel="stylesheet" href="style/main.css">
         <script src="js/ajax.min.js"></script>
         <script src="js/api.js"></script>
@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="header">
-            <div class="header-menu">
+            <div class="header-menu" onclick="toggleSideBarMenu();">
                 <div class="icon"></div>
             </div>
             <img src="./assets/logo.jpg" alt="">
@@ -62,6 +62,18 @@
                             
                         </fieldset>
                     </form>
+        </div>
+
+        <div id="menu" class=" active">
+            <div class="pure-menu">
+                <a class="pure-menu-heading" href="#">Menu</a>
+    
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="console_info.html" class="pure-menu-link">Console</a></li>
+                    <li class="pure-menu-item"><a href="wifi_config.html" class="pure-menu-link">Wi-Fi Config</a></li>
+                    <li class="pure-menu-item"><a href="factory_reset.html" class="pure-menu-link">Reset</a></li>
+                </ul>
+            </div>
         </div>
 
         <script>

@@ -199,3 +199,19 @@ var login = function(event) {
         window.location.href = '/wifi_config.html';
     });
 };
+
+var _sideBarMenuDisplay = false;
+var toggleSideBarMenu = function() {
+    console.log('toggleSideBarMenu');
+    var className = 'display-menu';
+    if (!_sideBarMenuDisplay) {
+        document.body.classList.add(className);
+    } else {
+        document.body.classList.remove(className);
+    }
+    _sideBarMenuDisplay = !_sideBarMenuDisplay;
+}
+
+window.onload = function() {
+    document.body.classList.add('load');
+}
