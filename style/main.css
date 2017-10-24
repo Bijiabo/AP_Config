@@ -1,366 +1,94 @@
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+.pure-form .pure-input-1 {
     width: 100%;
-    height: 44px;
-    background-color: #EA560E;
-    text-align: center;
 }
-
-.header img {
-    height: 100%;
-    width: auto;
-}
-
-.header-menu {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 44px;
-    width: 50px;
-    /* background: rgba(0,0,0,0.2); */
-}
-.header-menu .icon {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    background: #ffffff;
-    height: 4px;
-    width: 26px;
-    margin: -2px 10px 0 10px;
-    border-radius: 2px;
-}
-.header-menu .icon::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    height: 4px;
-    border-radius: 2px;
-}
-.header-menu .icon::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    height: 4px;
-    border-radius: 2px;
-}
-
-.container {
-    margin-top: 44px;
-    padding: 16px;
-}
-
-.form_item_title {
-    color: #808182;
-    margin-bottom: -4px !important;
-}
-
-.form_item_disable_edit {
-    height: 40px;
-    line-height: 40px;
-    border-bottom: 1px solid #D7D8DA;
-    margin-bottom: 10px;
-}
-
-.pure-form #form-items-container input[type=text] {
-    border: none;
-    border-bottom: 1px solid #D7D8DA;
-    box-shadow: none;
-    border-radius: 0;
-    padding-left: 0;
-    padding-right: 40px;
-}
-
-.pure-form #form-items-container input[type=text]:focus {
-    border-color: #007ACB;
-}
-
-.edit-input-container {
-    position: relative;
-}
-
-.edit-input-container::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    margin-top: -12px;
-    background-image: url(../assets/edit.jpg);
-    background-size: 100%;
-}
-
-/* custom radio */
-.ui-middle{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-.m-radio{
+.pure-form input {
+    line-height: normal;
+    color: inherit;
+    font: inherit;
+    padding: .5em .6em;
     display: inline-block;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border: solid 2px #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-right: 20px;
-}
-.m-radio:after{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    content: "";
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #fff;
-}
-.m-check{
-    clear: both;
-    width: 100%;
-    display: inline-block;
-    height: 34px;
-    overflow: auto;
-}
-.m-check input[type="radio"]{
-    display: none;
-}
-.m-check input[type="radio"]:checked + div{
-    border:solid 2px #FF6823;
-}
-.m-check input[type="radio"]:checked + div:after{
-    background-color: #FF6823;
-    border:solid 2px rgba(0,0,0,0);
-}
-.m-check>div {
-    float: left;
-}
-.m-check .ssid_list_name, .m-check .ssid_list_strength {
-    position: relative;
-    top: -3px;
-    line-height: 30px;
-}
-.m-check .ssid_list_name {
-    width: 192px;
-    margin: 0 20px 0 20px;
-}
-.button-container {
-    text-align: center;
-}
-.pure-done-button {
-    background-color: #ffffff;
-    border: 1px solid #FF6823;
-    color: #FF6823;
-    border-radius: 6px;
-}
-.pure-done-button:hover {
-    background-color: #ffffff;
-    background-image: none;
-}
-.pure-ghost-button {
-    background-color: none;
-    background: none;
-    border: 1px solid #4C4D4E;
-    color: #4C4D4E;
-    border-radius: 6px;
-}
-.pure-ghost-button:hover {
-    background-color: none;
-    background-image: none;
-}
-.enter-code-container {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
     box-sizing: border-box;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 80%;
-    height: 230px;
-    margin-left: -40%;
-    margin-top: -115px;
-    background: #E5E6E7;
-    padding: 16px;
-    border-radius: 10px;
+    margin-bottom: .3em;
+    display: block;
+    margin: .25em 0;
+}
+
+.pure-form label {
+    margin-bottom: .3em;
+    display: block;
+    margin: .25em 0;
+}
+
+fieldset {
+    border: none; margin: 0; padding: 0;
+}
+
+.pure-button {
+    font-family: inherit;
+    font-size: 100%;
+    padding: .5em 1em;
+    color: #444;
+    color: rgba(0,0,0,.8);
+    border: 1px solid #999;
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+    display: inline-block;
+    zoom: 1;
+    white-space: nowrap;
+    vertical-align: middle;
     text-align: center;
-    display: none;
-}
-.enter-code-container .title {
-    font-weight: bold;
-    color: #494A4B;
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-.enter-code-container .des {
-    margin-bottom: 10px;
-}
-.enter-code-container .input-container {
-    margin-bottom: 10px;
-}
-.enter-code-container .pure-button {
-    width: 100px;
-    margin: 0 10px;
-}
-.pure-form button[type=submit] {
-    margin-top: 0;
-}
-.refresh-container {
-    margin: 20px 0;
-    text-align: center;
-    color: #4A4B4C;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+    line-height: normal;
+    /* -webkit-appearance: button; */
+    text-transform: none;
+    overflow: visible;
+    margin: 0;
 }
 
-/* menu */
-
-/*
-The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
-appears on the left side of the page.
-*/
-
-#menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1000; /* so the menu or its navicon stays above all content */
-    background: #191818;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-    /*
-    All anchors inside the menu should be styled like this.
-    */
-    #menu a {
-        color: #999;
-        border: none;
-        padding: 0.6em 0 0.6em 0.6em;
-    }
-
-    /*
-    Remove all background/borders, since we are applying them to #menu.
-    */
-     #menu .pure-menu,
-     #menu .pure-menu ul {
-        border: none;
-        background: transparent;
-    }
-
-    /*
-    Add that light border to separate items into groups.
-    */
-    #menu .pure-menu ul,
-    #menu .pure-menu .menu-item-divided {
-        border-top: 1px solid #333;
-    }
-        /*
-        Change color of the anchor links on hover/focus.
-        */
-        #menu .pure-menu li a:hover,
-        #menu .pure-menu li a:focus {
-            background: #333;
-        }
-
-    /*
-    This styles the selected menu item `<li>`.
-    */
-    #menu .pure-menu-selected,
-    #menu .pure-menu-heading {
-        background: #303030;
-    }
-        /*
-        This styles a link within a selected menu item `<li>`.
-        */
-        #menu .pure-menu-selected a {
-            color: #fff;
-        }
-
-    /*
-    This styles the menu heading.
-    */
-    #menu .pure-menu-heading {
-        font-size: 110%;
-        color: #fff;
-        margin: 0;
-    }
-
-/* -- Dynamic Button For Responsive Menu -------------------------------------*/
-
-/*
-The button to open/close the Menu is custom-made and not part of Pure. Here's
-how it works:
-*/
-
-/*
-`.menu-link` represents the responsive menu toggle that shows/hides on
-small screens.
-*/
-.menu-link {
-    position: fixed;
-    display: block; /* show this only on small screens */
-    top: 0;
-    left: 0; /* "#menu width" */
-    background: #000;
-    background: rgba(0,0,0,0.7);
-    font-size: 10px; /* change this value to increase/decrease button size */
-    z-index: 10;
-    width: 2em;
-    height: auto;
-    padding: 2.1em 1.6em;
+.pure-button, .pure-form input:not([type]), .pure-menu {
+    box-sizing: border-box;
 }
 
-    .menu-link:hover,
-    .menu-link:focus {
-        background: #000;
-    }
-
-    .menu-link span {
-        position: relative;
-        display: block;
-    }
-
-    .menu-link span,
-    .menu-link span:before,
-    .menu-link span:after {
-        background-color: #fff;
-        width: 100%;
-        height: 0.2em;
-    }
-
-        .menu-link span:before,
-        .menu-link span:after {
-            position: absolute;
-            margin-top: -0.6em;
-            content: " ";
-        }
-
-        .menu-link span:after {
-            margin-top: 0.6em;
-        }
-
-#menu .pure-menu-item {
-    height: auto;
+.pure-menu-heading {
+    text-transform: uppercase;
 }
 
-/* transform: translate(150px,0); */
-.display-menu .container, .display-menu .header, .display-menu #menu{
-    transform: translate(150px,0);
+.pure-menu-heading {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
-.load .container, .load .header, .load #menu{
-    -moz-transition: all 0.2s ease-in; 
-    -webkit-transition: all 0.2s ease-in; 
-    -o-transition: all 0.2s ease-in; 
-    transition: all 0.2s ease-in;
+.pure-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
+.pure-menu-item, .pure-menu-list {
+    position: relative;
+}
+
+.pure-menu-item {
+    padding: 0;
+    margin: 0;
+}
+
+.pure-menu-heading, .pure-menu-link {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.header{position:fixed;top:0;left:0;right:0;width:100%;height:44px;background-color:#EA560E;text-align:center}.header img{height:100%;width:auto}.header-menu{position:absolute;left:0;top:0;height:44px;width:50px}.header-menu .icon{position:absolute;top:50%;left:0;background:#fff;height:4px;width:26px;margin:-2px 10px 0 10px;border-radius:2px}.header-menu .icon::before{content:"";position:absolute;top:-10px;left:0;width:100%;background:#fff;height:4px;border-radius:2px}.header-menu .icon::after{content:"";position:absolute;top:10px;left:0;width:100%;background:#fff;height:4px;border-radius:2px}.container{margin-top:44px;padding:16px}.form_item_title{color:#808182;margin-bottom:-4px!important}.form_item_disable_edit{height:40px;line-height:40px;border-bottom:1px solid #D7D8DA;margin-bottom:10px}.pure-form #form-items-container input[type=text]{border:none;border-bottom:1px solid #D7D8DA;box-shadow:none;border-radius:0;padding-left:0;padding-right:40px}.pure-form #form-items-container input[type=text]:focus{border-color:#007ACB}.edit-input-container{position:relative}.edit-input-container::after{content:"";position:absolute;right:0;top:50%;width:20px;height:20px;margin-top:-12px;background-image:url(../assets/edit.jpg);background-size:100%}.ui-middle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}.m-radio{display:inline-block;position:relative;width:20px;height:20px;border:solid 2px #ccc;border-radius:50%;cursor:pointer;margin-right:20px}.m-radio:after{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);content:"";width:10px;height:10px;border-radius:50%;background-color:#fff}.m-check{clear:both;width:100%;display:inline-block;height:34px;overflow:auto}.m-check input[type=radio]{display:none}.m-check input[type=radio]:checked+div{border:solid 2px #FF6823}.m-check input[type=radio]:checked+div:after{background-color:#FF6823;border:solid 2px transparent}.m-check>div{float:left}.m-check .ssid_list_name,.m-check .ssid_list_strength{position:relative;top:-3px;line-height:30px}.m-check .ssid_list_name{width:192px;margin:0 20px 0 20px}.button-container{text-align:center}.pure-done-button{background-color:#fff;border:1px solid #FF6823;color:#FF6823;border-radius:6px}.pure-done-button:hover{background-color:#fff;background-image:none}.pure-ghost-button{background-color:none;background:0 0;border:1px solid #4C4D4E;color:#4C4D4E;border-radius:6px}.pure-ghost-button:hover{background-color:none;background-image:none}.enter-code-container{box-sizing:border-box;position:fixed;left:50%;top:50%;width:80%;height:230px;margin-left:-40%;margin-top:-115px;background:#E5E6E7;padding:16px;border-radius:10px;text-align:center;display:none}.enter-code-container .title{font-weight:700;color:#494A4B;font-size:20px;margin-bottom:12px}.enter-code-container .des{margin-bottom:10px}.enter-code-container .input-container{margin-bottom:10px}.enter-code-container .pure-button{width:100px;margin:0 10px}.pure-form button[type=submit]{margin-top:0}.refresh-container{margin:20px 0;text-align:center;color:#4A4B4C}#menu{margin-left:-150px;width:150px;position:fixed;top:0;left:0;bottom:0;z-index:1000;background:#191818;overflow-y:auto;-webkit-overflow-scrolling:touch}#menu a{color:#999;border:none;padding:.6em 0 .6em .6em}#menu .pure-menu,#menu .pure-menu ul{border:none;background:0 0}#menu .pure-menu .menu-item-divided,#menu .pure-menu ul{border-top:1px solid #333}#menu .pure-menu li a:focus,#menu .pure-menu li a:hover{background:#333}#menu .pure-menu-heading,#menu .pure-menu-selected{background:#303030}#menu .pure-menu-selected a{color:#fff}#menu .pure-menu-heading{font-size:110%;color:#fff;margin:0}.menu-link{position:fixed;display:block;top:0;left:0;background:#000;background:rgba(0,0,0,.7);font-size:10px;z-index:10;width:2em;height:auto;padding:2.1em 1.6em}.menu-link:focus,.menu-link:hover{background:#000}.menu-link span{position:relative;display:block}.menu-link span,.menu-link span:after,.menu-link span:before{background-color:#fff;width:100%;height:.2em}.menu-link span:after,.menu-link span:before{position:absolute;margin-top:-.6em;content:" "}.menu-link span:after{margin-top:.6em}#menu .pure-menu-item{height:auto}.display-menu #menu,.display-menu .container,.display-menu .header{transform:translate(150px,0)}.load #menu,.load .container,.load .header{-moz-transition:all .2s ease-in;-webkit-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in}

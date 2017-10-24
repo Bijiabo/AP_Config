@@ -1,5 +1,5 @@
 var API = {
-    _debugMode: true,
+    _debugMode: false,
     _log: function(method, path, data, callback) { console.log('run ['+method+']: ', path, data, callback) },
     _post: function(path, data, callback) {
         this._log('post', path, data, callback);
