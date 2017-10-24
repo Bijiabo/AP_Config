@@ -184,3 +184,18 @@ var removeSSID = function(ssid) {
         window.location.reload();
     });
 };
+
+var login = function(event) {
+    event.preventDefault();
+    var name = document.getElementById('name').value;
+    var password = document.getElementById('password').value;
+    API.login(name, password, function(res){
+        if (res.success) {
+            alert ('Log in success!');
+        } else {
+            alert ('Log in failed, please try again and check your name and password.');
+            return;
+        } 
+        window.location.href = '/wifi_config.html';
+    });
+};
