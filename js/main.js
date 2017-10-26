@@ -1,3 +1,7 @@
+var cache = {
+    hasBeenGetSSIDScanList: false
+};
+
 var generate = {
     consoleInfoFromHTML: function(formData) {
         var result = '';
@@ -43,11 +47,13 @@ var generate = {
         var result = '';
         for (var i=0,len=SSIDList.length; i<len; i++) {
             var item = SSIDList[i];
-            
+            var itemID = 'saved-ssid-item-container-'+i;
             var itemHTMLCode = '\
-            <label class="m-check ui-margin">\
+            <label class="m-check ui-margin" id="'+itemID+'">\
                 <div class="ssid_list_name" style="margin-left: 0;">'+item.ssid+'</div>\
-                <div class="ssid_list_delete" style="float: right; text-align: right;" onclick="removeSSID(\''+item.ssid+'\');">Delete</div>\
+                <div class="ssid_list_delete" style="float: right; text-align: right;" onclick="removeSSID(\''+item.ssid+','+itemID+'\');">\
+                <img src="assets/delete.jpg">\
+                </div>\
             </label>';
 
             result += itemHTMLCode;
@@ -83,6 +89,9 @@ var render = {
 var refreshSSIDListData = {
     setIntervalID: -1,
     start: function() {
+        var self = this;
+        this.end();
+
         var getDataFunction = function() {
             API.getWiFiScanList(function(res){
                 if (!res.success) {
@@ -90,9 +99,10 @@ var refreshSSIDListData = {
                     return;
                 }
                 render.SSIDListFromBySSIDList(res.data);
+                self.end();
             });
         };
-        this.setIntervalID = window.setInterval(getDataFunction, 1000);
+        this.setIntervalID = window.setInterval(getDataFunction, 1000 * 5);
     },
     end: function() {
         if (this.setIntervalID <= 0) {return;}
@@ -173,10 +183,14 @@ var reset = function(event) {
     });
 };
 
-var removeSSID = function(ssid) {
+var removeSSID = function(ssid, containerID) {
     API.removeSavedSSID(ssid, function(res){
         if (res.success) {
             alert ('Remove SSID success!');
+            var savedSSIDListItemContainer = document.getElementById(containerID);
+            if (savedSSIDListItemContainer) {
+                savedSSIDListItemContainer.remove();
+            }
         } else {
             alert ('Remove SSID failed, please try again.');
             return;
