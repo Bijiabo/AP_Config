@@ -77,16 +77,6 @@
         </div>
 
         <script>
-        /*
-        API.getWiFiScanList(function(res){
-            if (!res.success) {
-                alert('Get Wi-Fi scan list failed. Please try refresh page again.');
-                return;
-            }
-            window.ssid_scan_list = res.data;
-            render.SSIDListFromBySSIDList(res.data);
-        });
-        */
         refreshSSIDListData.start();
 
         API.getWiFiSavedList(function(res){
@@ -96,7 +86,7 @@
             }
             window.saved_ssid_list = res.data;
             render.SavedSSIDListFromBySSIDList(res.data);
-        })
+        });
 
         </script>
     </body>

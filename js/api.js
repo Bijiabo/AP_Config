@@ -83,6 +83,12 @@ API.getConsoleInfo = function(callback) {
 // post actions
 
 API.login = function(name, password, callback) {
+    if (this._debugMode) {
+        callback({
+            success: true
+        });
+        return;
+    }
     var path = '/api/login';
     var data = {
         name: name,
